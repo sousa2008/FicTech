@@ -21,5 +21,5 @@ Este repositório armazena o código-fonte da página de apresentação e futura
 - [x] Definição do nome e logotipo da startup.
 - [x] Criação do repositório público no GitHub.
 - [x] Desenvolvimento da página `index.html` de apresentação.
-- [ ] Conexão do repositório com a hospedagem via cPanel.
-- [ ] Criação e roteamento do subdomínio da equipe.
+- [x] Conexão do repositório com a hospedagem via cPanel.
+- [x] Criação e roteamento do subdomínio da equipe.
