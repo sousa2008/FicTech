@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Personas da Equipe | Portal FicTech</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+
+  <header class="header" id="header">
+    <div class="logo">Fic<span>Tech</span></div>
+
+    <button class="menu-toggle" aria-label="Abrir menu de navegação" onclick="toggleNav()">
+      &#9776;
+    </button>
+
+    <nav>
+      <ul id="nav-menu">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="quem-somos.html" class="active">Quem Somos</a></li>
+        <li><a href="personas.html">Personas</a></li>
+        <li><a href="contato.php" class="btn-primary-sm">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="team-section">
+    <div class="section-header">
+      <h2>Personas da Equipe</h2>
+      <p>Perfis técnicos, habilidades e papéis na Startup FicTech</p>
+    </div>
+
+    <div class="cards-grid-5">
+      <!-- Lucas -->
+      <div class="glass-card team-card" onclick="window.location.href='personas.html#lucas'">
+        <img src="https://picsum.photos/600/800?random=1" alt="Lucas de Sousa e Silva" class="profile-img-vertical">
+        <h3>Lucas de Sousa e Silva</h3>
+        <span class="role">Scrum Master Líder & Desenvolvedor Back-end</span>
+        <p class="desc-sm">Coordenação do projeto, hospedagem e automação de dados.</p>
+      </div>
+
+      <!-- João -->
+      <div class="glass-card team-card" onclick="window.location.href='personas.html#joao'">
+        <img src="https://picsum.photos/600/800?random=2" alt="João Vitor Souza da Silva" class="profile-img-vertical">
+        <h3>João Vitor Souza da Silva</h3>
+        <span class="role">Scrum Master Suplente & Desenvolvedor Back-end</span>
+        <p class="desc-sm">Liderança back-end, engenharia de prompt e qualidade.</p>
+      </div>
+
+      <!-- Enzo -->
+      <div class="glass-card team-card" onclick="window.location.href='personas.html#enzo'">
+        <img src="https://picsum.photos/600/800?random=3" alt="Enzo Gabriel Cortinove Gomes"
+          class="profile-img-vertical">
+        <h3>Enzo Gabriel Cortinove Gomes</h3>
+        <span class="role">Desenvolvedor Front-End</span>
+        <p class="desc-sm">Interface visual, usabilidade e integração com o back-end.</p>
+      </div>
+
+      <!-- Gustavo -->
+      <div class="glass-card team-card" onclick="window.location.href='personas.html#gustavo'">
+        <img src="https://picsum.photos/600/800?random=4" alt="Gustavo Menezes Garcia" class="profile-img-vertical">
+        <h3>Gustavo Menezes Garcia</h3>
+        <span class="role">Dev Banco de Dados & System Tester</span>
+        <p class="desc-sm">Modelagem SQL, regra de negócio e garantia de qualidade.</p>
+      </div>
+
+      <!-- Nikolas -->
+      <div class="glass-card team-card" onclick="window.location.href='personas.html#nikolas'">
+        <img src="https://picsum.photos/600/800?random=5" alt="Nikolas Alcantara Deodato" class="profile-img-vertical">
+        <h3>Nikolas Alcantara Deodato</h3>
+        <span class="role">Desenvolvedor Front-End</span>
+        <p class="desc-sm">Design de interfaces, web scraping e segurança da informação.</p>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Toggle mobile navigation
+    function toggleNav() {
+      const navMobile = document.getElementById('nav-mobile');
+      const isOpen = navMobile.classList.toggle('visible');
+
+      // Aria label update for accessibility
+      const toggle = document.querySelector('.menu-toggle');
+      toggle.setAttribute('aria-expanded', isOpen);
+      toggle.setAttribute('aria-label', isOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
+    }
+  </script>
+
+  <footer class="footer">
+    <div class="footer-bottom">
+      <p>&copy; 2026 Startup FicTech. IFSP Campus Guarulhos.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>

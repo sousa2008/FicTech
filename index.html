@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portal FicTech | IFSP Guarulhos</title>
+  <!-- Fonte Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="static/css/style.css">
+</head>
+
+<body>
+
+  <header class="header" id="header">
+    <div class="logo">Fic<span>Tech</span></div>
+
+    <!-- Botão Hambúrguer (Visível apenas em telas menores/mobile) -->
+    <button class="menu-toggle" aria-label="Abrir menu de navegação" onclick="toggleNav()">
+      &#9776;
+    </button>
+
+    <nav>
+      <ul id="nav-menu">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="quem-somos.html">Quem Somos</a></li>
+        <li><a href="personas.html">Personas</a></li>
+        <li><a href="contato.php" class="btn-primary-sm">Contato</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- 1ª DOBRA: HERO SECTION -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <span class="badge">Projeto de Extensão IFSP Guarulhos</span>
+      <h1>Inovação Acadêmica Conectada ao <span>Mercado Real</span></h1>
+      <p>Desenvolvemos soluções tecnológicas inteligentes e acessíveis, aproximando a engenharia de software da
+        comunidade e empresas de Guarulhos.</p>
+      <div class="hero-buttons">
+        <a href="quem-somos.html" class="btn-primary">Conheça Nossas Ações</a>
+        <a href="contato.php" class="btn-secondary">Fale Conosco</a>
+      </div>
+    </div>
+    <div class="hero-image-wrapper">
+      <!-- Imagem Horizontal no padrão clássico 16:9 (1280x720) -->
+      <img src="https://picsum.photos/1280/720" alt="Equipe FicTech reunida no IFSP Campus Guarulhos" class="hero-img">
+    </div>
+  </section>
+
+  <script>
+    // Header scroll effect
+    const header = document.getElementById('header');
+    let lastScroll = 0;
+
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+
+      if (currentScroll > lastScroll && currentScroll > 100) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+
+      lastScroll = currentScroll;
+    });
+  </script>
+
+  <script>
+    function toggleNav() {
+      const navMenu = document.getElementById('nav-menu');
+      const isOpen = navMenu.classList.toggle('visible');
+
+      const toggle = document.querySelector('.menu-toggle');
+      toggle.setAttribute('aria-expanded', isOpen);
+      toggle.setAttribute('aria-label', isOpen ? 'Fechar menu de navegação' : 'Abrir menu de navegação');
+    }
+  </script>
+
+  <!-- 2ª DOBRA: INSTITUCIONAL (MISSÃO, VISÃO E VALORES) -->
+  <section class="institutional-section">
+    <div class="section-header">
+      <h2>Nossa Identidade</h2>
+      <p>O que nos move como startup acadêmica de tecnologia.</p>
+    </div>
+    <div class="cards-grid-3">
+      <div class="glass-card">
+        <div class="card-icon">🚀</div>
+        <h3>Missão</h3>
+        <p>Desenvolver soluções tecnológicas inteligentes e acessíveis, aproximando a inovação acadêmica da realidade
+          operacional de empresas e da comunidade de Guarulhos.</p>
+      </div>
+      <div class="glass-card">
+        <div class="card-icon">👁️</div>
+        <h3>Visão</h3>
+        <p>Ser referência regional em startups acadêmicas geradas no IFSP, destacando-se pela excelência em engenharia
+          de software e automação de processos.</p>
+      </div>
+      <div class="glass-card">
+        <div class="card-icon">💎</div>
+        <h3>Valores</h3>
+        <ul>
+          <li>Inovação prática e focada em resultados.</li>
+          <li>Colaboração e sinergia acadêmica.</li>
+          <li>Transparência e agilidade (Metodologia Ágil).</li>
+          <li>Qualidade técnica rigorosa.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3ª DOBRA: SERVIÇOS (AÇÕES DE EXTENSÃO) -->
+  <section class="services-section">
+    <div class="section-header">
+      <h2>Ações de Extensão</h2>
+      <p>Frentes obrigatórias de atuação da FicTech para a comunidade e empresas.</p>
+    </div>
+    <div class="cards-grid-4">
+      <div class="glass-card">
+        <div class="card-icon">💡</div>
+        <h3>Consultoria</h3>
+        <p>Análise técnica e diagnósticos para otimização de processos e adoção de novas tecnologias.</p>
+        <a href="quem-somos.html#consultoria" class="card-link">Saiba Mais &rarr;</a>
+      </div>
+      <div class="glass-card">
+        <div class="card-icon">🎓</div>
+        <h3>Capacitação</h3>
+        <p>Treinamentos e workshops práticos focados no desenvolvimento de habilidades digitais.</p>
+        <a href="quem-somos.html#capacitacao" class="card-link">Saiba Mais &rarr;</a>
+      </div>
+      <div class="glass-card">
+        <div class="card-icon">🛠️</div>
+        <h3>Prestação de Serviço</h3>
+        <p>Suporte técnico especializado e manutenção em sistemas e infraestruturas existentes.</p>
+        <a href="quem-somos.html#prestacao" class="card-link">Saiba Mais &rarr;</a>
+      </div>
+      <div class="glass-card">
+        <div class="card-icon">⚙️</div>
+        <h3>Projetos de Engenharia</h3>
+        <p>Desenvolvimento completo de software sob medida, do banco de dados ao front-end.</p>
+        <a href="quem-somos.html#engenharia" class="card-link">Saiba Mais &rarr;</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4ª DOBRA: EQUIPE (PERSONAS) -->
+  <section class="team-section">
+    <div class="section-header">
+      <h2>Nossa Equipe</h2>
+      <p>Conheça os talentos por trás da FicTech.</p>
+    </div>
+    <div class="cards-grid-5">
+      <!-- Lucas -->
+      <div class="glass-card team-card" onclick="window.location.href='personas.html#lucas'">
+        <!-- Imagem Vertical Retrato 3:4 (600x800) -->
+        <img src="https://picsum.photos/600/800?random=1" alt="Lucas de Sousa e Silva" class="profile-img-vertical">
+        <h3>Lucas de Sousa</h3>
+        <span class="role">Scrum Master Líder / Dev Back-end</span>
+        <p class="desc-sm">Coordenação do projeto, hospedagem e automação de dados.</p>
+      </div>
+      <!-- João -->
+      <div class="glass-card team-card" onclick="window.location.href='personas.html#joao'">
+        <img src="https://picsum.photos/600/800?random=2" alt="João Vitor Souza da Silva" class="profile-img-vertical">
+        <h3>João Vitor</h3>
+        <span class="role">Scrum Master Suplente / Back-end</span>
+        <p class="desc-sm">Liderança back-end,engenharia de prompt e qualidade.</p>
+      </div>
+      <!-- Enzo -->
+      <div class="glass-card team-card" onclick="window.location.href='personas.html#enzo'">
+        <img src="https://picsum.photos/600/800?random=3" alt="Enzo Gabriel Cortinove Gomes"
+          class="profile-img-vertical">
+        <h3>Enzo Gabriel</h3>
+        <span class="role">Desenvolvedor Front-End</span>
+        <p class="desc-sm">Interface visual, usabilidade e integração com o back-end.</p>
+      </div>
+      <!-- Gustavo -->
+      <div class="glass-card team-card" onclick="window.location.href='personas.html#gustavo'">
+        <img src="https://picsum.photos/600/800?random=4" alt="Gustavo Menezes Garcia" class="profile-img-vertical">
+        <h3>Gustavo Menezes</h3>
+        <span class="role">Dev Banco de Dados & Tester</span>
+        <p class="desc-sm">Modelagem SQL, regra de negócio e garantia de qualidade.</p>
+      </div>
+      <!-- Nikolas -->
+      <div class="glass-card team-card" onclick="window.location.href='personas.html#nikolas'">
+        <img src="https://picsum.photos/600/800?random=5" alt="Nikolas Alcantara Deodato" class="profile-img-vertical">
+        <h3>Nikolas Alcantara</h3>
+        <span class="role">Desenvolvedor Front-end</span>
+        <p class="desc-sm">Design de interfaces, web scraping e segurança.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5ª DOBRA: RODAPÉ E LOCALIZAÇÃO -->
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-info">
+        <h3>Fic<span>Tech</span></h3>
+        <p>Projeto de Extensão - IFSP Campus Guarulhos</p>
+        <p>Desenvolvimento de soluções tecnológicas para a comunidade.</p>
+      </div>
+      <div class="footer-location">
+        <h4>Localização Oficial</h4>
+        <p>📍 IFSP Campus Guarulhos</p>
+        <p>Av. Salgado Filho, 3501 - Vila Rio de Janeiro, Guarulhos - SP, 07115-000</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Startup FicTech. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+</body>
+
+</html>
