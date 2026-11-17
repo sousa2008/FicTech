@@ -604,6 +604,157 @@ h4 { font-size: 0.95rem; font-weight: 700; }
 .frente-box p { font-size: 0.92rem; color: var(--text-muted); line-height: 1.65; margin-bottom: 1.2rem; }
 .frente-link { color: var(--primary-neon); font-size: 0.85rem; font-weight: 700; text-decoration: none; }
 
+/* ── SEÇÃO 5: O SQUAD COLETIVO (FOTO EM GRUPO & CULTURA ACADÊMICA) ── */
+.squad-section {
+  position: relative;
+  background: linear-gradient(180deg, rgba(9, 5, 17, 0) 0%, rgba(14, 8, 30, 0.45) 50%, rgba(9, 5, 17, 0) 100%);
+}
+
+.squad-showcase {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.squad-image-frame {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 25px 65px rgba(0, 0, 0, 0.75), 0 0 35px rgba(157, 78, 221, 0.2);
+  background: var(--bg-surface);
+  transition: border-color var(--transition), box-shadow var(--transition);
+}
+
+.squad-image-frame:hover {
+  border-color: var(--card-border-glow);
+  box-shadow: 0 30px 75px rgba(0, 0, 0, 0.85), 0 0 45px rgba(157, 78, 221, 0.35);
+}
+
+.squad-photo {
+  width: 100%;
+  height: 100%;
+  max-height: 500px;
+  object-fit: cover;
+  object-position: center center;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.squad-image-frame:hover .squad-photo {
+  transform: scale(1.025);
+}
+
+.squad-image-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent 55%, rgba(9, 5, 17, 0.7) 100%);
+}
+
+.squad-badge-tag {
+  position: absolute;
+  bottom: 1.4rem;
+  left: 1.4rem;
+  background: rgba(9, 5, 17, 0.88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--card-border);
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.05em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.squad-badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 8px var(--accent-cyan);
+}
+
+.squad-content-box {
+  background: var(--bg-card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-lg);
+  padding: 2.8rem;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.4);
+  transition: var(--transition);
+}
+
+.squad-content-box:hover {
+  border-color: var(--card-border-glow);
+}
+
+.squad-content-box h3 {
+  font-size: 1.55rem;
+  margin-bottom: 1rem;
+  line-height: 1.25;
+}
+
+.squad-content-box p {
+  color: var(--text-muted);
+  line-height: 1.75;
+  font-size: 0.95rem;
+}
+
+.squad-features-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+  margin-top: 2rem;
+}
+
+.squad-feature-item {
+  display: flex;
+  gap: 1.1rem;
+  align-items: flex-start;
+}
+
+.squad-feature-icon {
+  flex-shrink: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-sm);
+  background: rgba(157, 78, 221, 0.12);
+  border: 1px solid var(--card-border);
+  color: var(--primary-neon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.squad-feature-item:hover .squad-feature-icon {
+  border-color: var(--primary-neon);
+  background: rgba(157, 78, 221, 0.22);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.squad-feature-item h4 {
+  font-size: 0.98rem;
+  margin-bottom: 0.25rem;
+  color: #fff;
+}
+
+.squad-feature-item p {
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
 /* ── SEÇÃO 4: COVERFLOW GALLERY (FOCO TOTAL NA IMAGEM) ── */
 .coverflow-section {
   position: relative;
@@ -679,20 +830,25 @@ h4 { font-size: 0.95rem; font-weight: 700; }
   transition: transform 0.5s ease;
 }
 
+.photo-lucas { object-position: center 30%; }
+.photo-joao { object-position: center 36%; }
+.photo-enzo { object-position: 28% 25%; }
+.photo-gustavo { object-position: center 50%; }
+.photo-nikolas { object-position: center 51%; }
+
 .coverflow-item.active .portrait-photo {
   transform: scale(1.04);
 }
 
-/* Degradê suave e longo da foto para o fundo do card — sem linha visível */
+/* Degradê suave da foto para o fundo do card — rosto 100% nítido e transição natural no peito */
 .portrait-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(
     180deg,
-    transparent 20%,
-    rgba(18, 11, 36, 0.15) 45%,
-    rgba(18, 11, 36, 0.55) 65%,
-    rgba(18, 11, 36, 0.88) 82%,
+    transparent 55%,
+    rgba(18, 11, 36, 0.15) 72%,
+    rgba(18, 11, 36, 0.6) 86%,
     rgba(18, 11, 36, 0.98) 100%
   );
   pointer-events: none;
@@ -951,6 +1107,10 @@ textarea.form-input {
 @media (max-width: 992px) {
   .bento-card-7, .bento-card-5, .bento-card-4, .bento-card-8 {
     grid-column: span 12;
+  }
+  .squad-showcase {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
   }
   .contact-grid {
     grid-template-columns: 1fr;
