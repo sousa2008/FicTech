@@ -316,7 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const H = root.offsetHeight || 520;
       const cx = W / 2;
       const cy = (H / 2) - 30; // Posicionamento mais elevado para amplitude visual
-      const radius = Math.min(330, W * 0.34);
+      const radius = Math.min(330, W * (W <= 480 ? 0.25 : W <= 768 ? 0.3 : 0.34));
 
       const pitchA = (tilt + (py - 0.5) * 6) * DEG;
       const cp = Math.cos(pitchA);

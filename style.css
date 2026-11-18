@@ -41,6 +41,8 @@ html {
   scroll-padding-top: calc(var(--nav-height) + 30px);
   background-color: var(--bg-main);
   color: var(--text-main);
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -1456,5 +1458,30 @@ textarea.form-input {
   }
   .squad-features-list {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .halo-carousel-wrapper {
+    height: 260px;
+    margin-bottom: 2rem;
+  }
+  .halo-3d-card {
+    width: 96px;
+    height: 112px;
+  }
+  .halo-tech-icon {
+    width: 48px;
+    height: 48px;
+  }
+  .halo-card-footer {
+    margin-top: 0.4rem;
+  }
+  .halo-card-name {
+    font-size: 0.78rem;
+  }
+  .halo-card-cat {
+    font-size: 0.46rem;
+    letter-spacing: 0.05em;
   }
 }
