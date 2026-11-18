@@ -26,7 +26,7 @@ Para cumprir os requisitos exatos do professor, as seguintes tarefas precisam se
 - [ ] **Validar necessidade das páginas abaixo**
 - [ ] **Página "Quem Somos" (`quem-somos.html`):** Criar a página detalhando a história da FicTech ligada à extensão do IFSP, e criar as 4 seções detalhando as ações de extensão.
 - [ ] **Página "Personas" (`personas.html`):** Criar a página de apresentação detalhada de cada membro da equipe (Lucas, João, Enzo, Gustavo, Nikolas), linkando com os cards da Home.
-- [ ] **Responsividade:** Garantir que o Glassmorphism e os paddings funcionem perfeitamente em telas mobile.
+- [x] **Responsividade:** Menu hambúrguer acessível; apresentação institucional em acordeão no celular; tecnologias adaptadas à largura da tela; cards de serviços em duas colunas; formulário compacto; rodapé reorganizado para celular.
 
 ### Back-end e Infraestrutura (PHP/MySQL) 
 - [ ] **Esperar Front-end ser devidamente concluido/validado**

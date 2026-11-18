@@ -185,14 +185,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Mede e trava a largura exata de CADA slot de letra no DOM
     // Garante matematicamente ZERO layout shift e zero alteração de altura
-    requestAnimationFrame(() => {
-      document.querySelectorAll('.char-slot').forEach(slot => {
-        const rect = slot.getBoundingClientRect();
-        if (rect.width > 0) {
-          slot.style.width = `${rect.width.toFixed(2)}px`;
-        }
+    function measureLetterSlots() {
+      requestAnimationFrame(() => {
+        document.querySelectorAll('.char-slot').forEach(slot => {
+          slot.style.width = '';
+        });
+        document.querySelectorAll('.char-slot').forEach(slot => {
+          const rect = slot.getBoundingClientRect();
+          if (rect.width > 0) {
+            slot.style.width = `${rect.width.toFixed(2)}px`;
+          }
+        });
       });
-    });
+    }
+
+    measureLetterSlots();
+    window.addEventListener('resize', measureLetterSlots, { passive: true });
 
     // Executa uma única vez de forma lenta, suave e controlada
     function runSlowReveal() {
@@ -291,7 +299,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const DEG = Math.PI / 180;
     const tilt = 18;       // Inclinação 3D elegante
     const roll = -10;
-    const radius = 330;    // Raio orbital perfeito
     const perspective = 1400;
 
     function renderRing(dt) {
@@ -309,6 +316,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const H = root.offsetHeight || 520;
       const cx = W / 2;
       const cy = (H / 2) - 30; // Posicionamento mais elevado para amplitude visual
+      const radius = Math.min(330, W * 0.34);
 
       const pitchA = (tilt + (py - 0.5) * 6) * DEG;
       const cp = Math.cos(pitchA);
@@ -417,7 +425,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
           // Cards Laterais Rotacionados em 3D
           const dir = offset > 0 ? 1 : -1;
-          const spacing = 220;
+          const spacing = Math.min(220, wrap.clientWidth * 0.48);
           const x = dir * (spacing + (absOffset - 1) * 140);
           const z = -absOffset * 150;
           const rotY = dir * -38;
@@ -466,11 +474,37 @@ document.addEventListener('DOMContentLoaded', () => {
     updateCoverflow(0);
   }
 
+  function initStartupAccordion() {
+    const cards = document.querySelectorAll('#startup .bento-card');
+    const mobileQuery = window.matchMedia('(max-width: 768px)');
+    if (cards.length === 0) return;
+
+    function syncCardState() {
+      cards.forEach(card => {
+        card.open = !mobileQuery.matches;
+      });
+    }
+
+    cards.forEach(card => {
+      card.addEventListener('toggle', () => {
+        if (mobileQuery.matches && card.open) {
+          cards.forEach(otherCard => {
+            if (otherCard !== card) otherCard.open = false;
+          });
+        }
+      });
+    });
+
+    syncCardState();
+    mobileQuery.addEventListener('change', syncCardState);
+  }
+
   /* ==========================================================
      5. SPA SMOOTH SCROLL & SCROLLSPY
      ========================================================== */
   function initNavbar() {
     const navLinks = document.querySelectorAll('.nav-links a');
+    const navList = document.getElementById('navLinks');
     const sections = document.querySelectorAll('section[id]');
     const navbar = document.querySelector('.navbar');
 
@@ -504,13 +538,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navLinks.forEach(l => {
       l.addEventListener('click', () => {
-        document.getElementById('navLinks')?.classList.remove('nav-open');
+        navList?.classList.remove('nav-open');
+        const toggleBtn = document.querySelector('.menu-toggle');
+        toggleBtn?.setAttribute('aria-expanded', 'false');
+        toggleBtn?.setAttribute('aria-label', 'Abrir Menu');
       });
     });
 
     const toggleBtn = document.querySelector('.menu-toggle');
     toggleBtn?.addEventListener('click', () => {
-      document.getElementById('navLinks')?.classList.toggle('nav-open');
+      const isOpen = navList?.classList.toggle('nav-open') ?? false;
+      toggleBtn.setAttribute('aria-expanded', String(isOpen));
+      toggleBtn.setAttribute('aria-label', isOpen ? 'Fechar Menu' : 'Abrir Menu');
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape' && navList?.classList.contains('nav-open')) {
+        navList.classList.remove('nav-open');
+        toggleBtn?.setAttribute('aria-expanded', 'false');
+        toggleBtn?.setAttribute('aria-label', 'Abrir Menu');
+        toggleBtn?.focus();
+      }
     });
   }
 
@@ -554,6 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initRandomLetterSwap();
   initHaloCardCarousel();
   initCoverflowGallery();
+  initStartupAccordion();
   initNavbar();
   initContactForm();
 
