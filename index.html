@@ -26,7 +26,7 @@
         <div class="logo-dot"></div>
       </a>
 
-      <button class="menu-toggle" aria-label="Abrir Menu">
+      <button class="menu-toggle" type="button" aria-label="Abrir Menu" aria-expanded="false" aria-controls="navLinks">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
           <line x1="3" y1="6" x2="21" y2="6"/>
           <line x1="3" y1="12" x2="21" y2="12"/>
@@ -102,39 +102,47 @@
 
       <div class="bento-grid">
         <!-- Missao -->
-        <div class="bento-card bento-card-7">
-          <span class="card-num">CORE // 01 · MISSAO OPERACIONAL</span>
-          <h3>Transferencia Tecnologica Universitaria</h3>
+        <details class="bento-card bento-card-7" open>
+          <summary class="bento-summary">
+            <span class="card-num">CORE // 01 · MISSAO OPERACIONAL</span>
+            <h3>Transferencia Tecnologica Universitaria</h3>
+          </summary>
           <p>
             Projetar e disponibilizar infraestruturas de software modernas e acessiveis, viabilizando a transferencia de tecnologia entre o laboratorio universitario e a comunidade produtiva de Guarulhos e regiao metropolitana.
           </p>
-        </div>
+        </details>
 
         <!-- Visao -->
-        <div class="bento-card bento-card-5">
-          <span class="card-num">CORE // 02 · VISAO ESTRATEGICA</span>
-          <h3>Centro de Referencia 2027</h3>
+        <details class="bento-card bento-card-5" open>
+          <summary class="bento-summary">
+            <span class="card-num">CORE // 02 · VISAO ESTRATEGICA</span>
+            <h3>Centro de Referencia 2027</h3>
+          </summary>
           <p>
             Estabelecer o polo FicTech como centro de excelencia em governanca de dados, automacao e desenvolvimento full-stack em ambiente academico no Estado de Sao Paulo.
           </p>
-        </div>
+        </details>
 
         <!-- Valores -->
-        <div class="bento-card bento-card-4">
-          <span class="card-num">CORE // 03 · VALORES E METRICAS</span>
-          <h3>Rigor Tecnico e Agilidade</h3>
+        <details class="bento-card bento-card-4" open>
+          <summary class="bento-summary">
+            <span class="card-num">CORE // 03 · VALORES E METRICAS</span>
+            <h3>Rigor Tecnico e Agilidade</h3>
+          </summary>
           <ul class="bento-list">
             <li>Rigor em arquitetura de dados relacionais</li>
             <li>Transparencia agil em ciclos Scrum</li>
             <li>Codigo limpo, testavel e auditavel</li>
             <li>Seguranca defensiva e conformidade LGPD</li>
           </ul>
-        </div>
+        </details>
 
         <!-- Curricularizacao de Extensao -->
-        <div class="bento-card bento-card-8">
-          <span class="card-num">EXTENSAO // HISTORICO IFSP</span>
-          <h3>Gênese da Curricularizacao de Extensao (Fase 1.5)</h3>
+        <details class="bento-card bento-card-8" open>
+          <summary class="bento-summary">
+            <span class="card-num">EXTENSAO // HISTORICO IFSP</span>
+            <h3>Gênese da Curricularizacao de Extensao (Fase 1.5)</h3>
+          </summary>
           <p style="margin-bottom: 1rem;">
             A FicTech foi concebida no IFSP Campus Guarulhos no curso de Tecnologia em Analise e Desenvolvimento de Sistemas (ADS). O projeto mitiga a barreira entre a pesquisa teorica e as necessidades operacionais de pequenas empresas locais, assegurando impacto socioeconomico real.
           </p>
@@ -143,7 +151,7 @@
             <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--primary-neon); font-weight: 700;">// INTEGRACAO CI/CD</span>
             <span style="font-family: var(--font-mono); font-size: 0.76rem; color: var(--text-main); font-weight: 700;">// SERVIDORES CPANEL</span>
           </div>
-        </div>
+        </details>
       </div>
     </div>
   </section>
